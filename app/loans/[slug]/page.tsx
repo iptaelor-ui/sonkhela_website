@@ -17,7 +17,7 @@ const PRODUCTS: Record<
   payslip: {
     title: "Payslip Backed Loans",
     tagline: "FOR SALARIED EMPLOYEES",
-    desc: "Affordable loans secured against your monthly payslip — no physical collateral needed. Designed for civil servants and salaried workers.",
+    desc: "Affordable loans secured against your monthly payslip, with no physical collateral needed. Designed for civil servants and salaried workers.",
     Icon: Banknote,
   },
   student: {
@@ -29,19 +29,19 @@ const PRODUCTS: Record<
   marketeer: {
     title: "Marketeer Loans",
     tagline: "FOR TRADERS & VENDORS",
-    desc: "Working capital designed around the daily and weekly cash flow of market traders and vendors — restock today, repay as you sell.",
+    desc: "Working capital designed around the daily and weekly cash flow of market traders and vendors: restock today, repay as you sell.",
     Icon: Store,
   },
   business: {
     title: "Business Loans",
     tagline: "FOR GROWING BUSINESSES",
-    desc: "Finance to help registered small businesses grow — stock, equipment, and expansion capital with clear, honest terms.",
+    desc: "Finance to help registered small businesses grow: stock, equipment, and expansion capital with clear, honest terms.",
     Icon: Briefcase,
   },
   "white-book": {
     title: "White Book Loans",
     tagline: "FOR VEHICLE OWNERS",
-    desc: "Unlock larger amounts using your vehicle's white book as security — while you keep driving your car.",
+    desc: "Unlock larger amounts using your vehicle's white book as security, while you keep driving your car.",
     Icon: Car,
   },
 };
@@ -108,8 +108,8 @@ export default async function ComingSoonLoanPage({
               Need cash right now?
             </h2>
             <p className="mx-auto mt-4 max-w-xl leading-8 text-gray-700">
-              Our <strong>Collateral Backed Loans</strong> are available today —
-              get quick cash secured against a phone, laptop, TV, or other
+              Our <strong>Collateral Backed Loans</strong> are available today.
+              Get quick cash secured against a phone, laptop, TV, or other
               valuable item, with same-day review.
             </p>
             <Link href="/loans/collateral">

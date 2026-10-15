@@ -5,9 +5,9 @@ import { createClient } from "@supabase/supabase-js";
 export const revalidate = 3600; // refresh business details every hour
 
 export const metadata = {
-  title: "Contact Us — Sonkhela Soft Loans",
+  title: "Contact Us | Sonkhela Soft Loans",
   description:
-    "Get in touch with Sonkhela Soft Loans in Lusaka, Zambia — by phone, WhatsApp, or email.",
+    "Get in touch with Sonkhela Soft Loans in Lusaka, Zambia, by phone, WhatsApp, or email.",
 };
 
 async function getBusiness() {
@@ -47,7 +47,7 @@ export default async function ContactPage() {
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-300">
             A question about a loan, your application, or repayment shouldn&apos;t
-            wait. For the fastest answer, call us directly — or use any channel below.
+            wait. For the fastest answer, call us directly, or use any channel below.
           </p>
         </div>
       </section>
@@ -67,7 +67,7 @@ export default async function ContactPage() {
                 <h3 className="text-xl font-bold text-[#0B1F4D]">Call Us</h3>
                 <p className="mt-2 font-semibold text-gray-700">{phone}</p>
                 <p className="mt-1 text-sm text-gray-500">
-                  Fastest response — tap to call
+                  Fastest response. Tap to call
                 </p>
               </a>
             )}

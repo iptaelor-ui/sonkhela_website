@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, CalendarDays, Clock } from "lucide-react";
+import { ArrowLeft, ArrowRight, CalendarDays, Clock, PiggyBank } from "lucide-react";
 import { getOtherPosts, getPost, getPublishedSlugs } from "@/database/blog";
+import { getOpenings } from "@/database/invest";
 import PostContent from "@/components/Blog/PostContent";
 import PostCover from "@/components/Blog/PostCover";
 
@@ -37,7 +38,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   const content = post.content || "";
   const minutes = Math.max(1, Math.round(content.split(/\s+/).length / 200));
-  const others = await getOtherPosts(slug);
+  const [others, openings] = await Promise.all([getOtherPosts(slug), getOpenings()]);
+  // Every post promotes our own savings plan while one is open
+  const savingsPlan = openings.find((o) => o.kind === "savings" && o.status !== "closed");
 
   return (
     <main className="min-h-screen bg-[#F8FAFC]">
@@ -75,6 +78,26 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </article>
 
         <aside className="space-y-6 lg:sticky lg:top-28 lg:self-start">
+          {savingsPlan && (
+            <div className="rounded-3xl bg-[#0B1F4D] p-8 text-white">
+              <div className="inline-flex rounded-2xl bg-white/10 p-3">
+                <PiggyBank size={28} className="text-[#F97316]" />
+              </div>
+              <h2 className="mt-4 text-xl font-bold">Save with Sonkhela</h2>
+              <p className="mt-2 leading-7 text-gray-300">
+                Put these tips into practice with the {savingsPlan.title}.
+              </p>
+              {savingsPlan.return_rate && (
+                <p className="mt-4 text-2xl font-extrabold text-[#F97316]">{savingsPlan.return_rate}</p>
+              )}
+              <Link href="/invest#openings">
+                <button className="mt-6 w-full rounded-xl bg-[#F97316] px-8 py-3 font-semibold text-white transition hover:bg-[#EA580C]">
+                  Start Saving
+                </button>
+              </Link>
+            </div>
+          )}
+
           <div className="rounded-3xl border border-[#F97316]/20 bg-[#FFF8F3] p-8 text-center">
             <h2 className="text-xl font-bold text-[#0B1F4D]">Need a little help getting there?</h2>
             <p className="mt-3 leading-7 text-gray-700">

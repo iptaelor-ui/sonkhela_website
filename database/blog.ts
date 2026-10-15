@@ -11,6 +11,29 @@ export type BlogPost = {
   cover_image?: string | null;
 };
 
+// The site avoids em dashes, but posts are written elsewhere, so swap them
+// at display time: a pair around an aside becomes commas (or brackets if the
+// aside already has commas), and a single one becomes a colon.
+export function replaceEmDashes(text: string): string {
+  return text
+    .replace(/\s*—\s*([^—.!?\n]{1,80}?)\s*—\s*/g, (_, aside: string) =>
+      aside.includes(",") ? ` (${aside}) ` : `, ${aside}, `
+    )
+    .replace(/\s*—\s*(?=[.,;:!?])/g, "")
+    .replace(/\s*—\s*/g, ": ");
+}
+
+type PostText = { title: string; excerpt: string | null; content?: string | null };
+
+export function cleanPost<T extends PostText>(post: T): T {
+  return {
+    ...post,
+    title: replaceEmDashes(post.title),
+    excerpt: post.excerpt && replaceEmDashes(post.excerpt),
+    ...(post.content != null && { content: replaceEmDashes(post.content) }),
+  };
+}
+
 // cache() lets generateMetadata and the page share one query per request
 export const getPost = cache(async (slug: string): Promise<BlogPost | null> => {
   const { data } = await supabase
@@ -19,7 +42,7 @@ export const getPost = cache(async (slug: string): Promise<BlogPost | null> => {
     .eq("slug", slug)
     .eq("is_published", true)
     .maybeSingle();
-  return data;
+  return data && cleanPost(data);
 });
 
 export async function getPublishedSlugs(): Promise<string[]> {
@@ -38,5 +61,5 @@ export async function getOtherPosts(slug: string, limit = 2) {
     .neq("slug", slug)
     .order("published_at", { ascending: false })
     .limit(limit);
-  return data || [];
+  return (data || []).map(cleanPost);
 }

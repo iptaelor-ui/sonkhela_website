@@ -109,7 +109,7 @@ export async function POST(req: NextRequest) {
 
       <p><strong>What happens next?</strong></p>
       <ul style="padding-left:18px;color:#4a5a50;">
-        <li>Our team will review your application — usually same day.</li>
+        <li>Our team will review your application, usually on the same day.</li>
         <li>You will receive an email once a decision has been made.</li>
         <li>If approved, we will send you a secure agreement signing link.</li>
       </ul>
@@ -133,7 +133,7 @@ export async function POST(req: NextRequest) {
     const quickApproveButton = quickApproveUrl
       ? `<p style="margin:0 0 12px;">
         <a href="${quickApproveUrl}" style="display:block;background:#145f39;color:#fff;padding:14px 24px;border-radius:8px;text-decoration:none;font-weight:bold;text-align:center;">
-          Approve — No Record Needed
+          Approve (No Record Needed)
         </a>
       </p>`
       : "";
@@ -149,7 +149,7 @@ export async function POST(req: NextRequest) {
           ${row("Application No.", `<span style="font-family:monospace;">${applicationNumber}</span>`)}
           ${row("Name", fullName)}
           ${row("Phone", `<a href="tel:${phone}" style="color:#0B1F4D;text-decoration:none;">${phone}</a>`)}
-          ${row("Email", email ? `<a href="mailto:${email}" style="color:#1d4ed8;">${email}</a>` : "—")}
+          ${row("Email", email ? `<a href="mailto:${email}" style="color:#1d4ed8;">${email}</a>` : "Not provided")}
           ${row("Loan Type", loanName)}
           ${divider()}
           ${row("Amount", fmtK(loanAmount), { emphasis: true })}
@@ -174,7 +174,7 @@ export async function POST(req: NextRequest) {
         transporter.sendMail({
           from: `Sonkhela Soft Loans <${gmailUser}>`,
           to: email,
-          subject: `Application Received — ${applicationNumber}`,
+          subject: `Application Received: ${applicationNumber}`,
           html: clientHtml,
         })
       );
@@ -184,7 +184,7 @@ export async function POST(req: NextRequest) {
       transporter.sendMail({
         from: `Sonkhela Soft Loans <${gmailUser}>`,
         to: adminEmail,
-        subject: `🔔 New Application: ${fullName} — ${fmtK(loanAmount)}`,
+        subject: `🔔 New Application: ${fullName} (${fmtK(loanAmount)})`,
         html: adminHtml,
       })
     );

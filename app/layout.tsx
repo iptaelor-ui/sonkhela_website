@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sonkhela Soft Loans — Fast Collateral Loans in Lusaka",
+  title: "Sonkhela Soft Loans | Fast Collateral Loans in Lusaka",
   description:
     "Quick, secure collateral-backed loans in Lusaka, Zambia. Apply online in minutes with your NRC and a valuable item. Same-day review.",
 };

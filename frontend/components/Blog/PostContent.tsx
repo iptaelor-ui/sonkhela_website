@@ -1,10 +1,23 @@
+import Link from "next/link";
 import { Fragment, type ReactNode } from "react";
 
 // Renders the simple Markdown used in blog_posts.content:
-// paragraphs, ## / ### headings, "- " and "1. " lists, **bold**, *italic*.
+// paragraphs, ## / ### headings, "- " and "1. " lists, **bold**, *italic*,
+// and [links](/invest) (site links open in place, others in a new tab).
+
+const LINK_CLASS = "font-semibold text-[#F97316] underline underline-offset-4 hover:text-[#EA580C]";
 
 function inline(text: string): ReactNode[] {
-  return text.split(/(\*\*[^*]+\*\*|\*[^*]+\*)/g).map((part, i) => {
+  return text.split(/(\*\*[^*]+\*\*|\[[^\]]+\]\([^)\s]+\)|\*[^*]+\*)/g).map((part, i) => {
+    const link = part.match(/^\[([^\]]+)\]\(([^)\s]+)\)$/);
+    if (link) {
+      const [, label, href] = link;
+      return href.startsWith("/") ? (
+        <Link key={i} href={href} className={LINK_CLASS}>{label}</Link>
+      ) : (
+        <a key={i} href={href} target="_blank" rel="noreferrer" className={LINK_CLASS}>{label}</a>
+      );
+    }
     if (part.startsWith("**") && part.endsWith("**")) {
       return <strong key={i} className="font-semibold text-[#0B1F4D]">{part.slice(2, -2)}</strong>;
     }

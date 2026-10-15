@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { supabase } from "@/lib/supabase";
+import { cleanPost } from "@/database/blog";
 import PostCover from "@/components/Blog/PostCover";
 
 export const revalidate = 3600;
@@ -21,7 +22,7 @@ export default async function BlogPage() {
     .eq("is_published", true)
     .order("published_at", { ascending: false });
 
-  const [latest, ...rest] = posts || [];
+  const [latest, ...rest] = (posts || []).map(cleanPost);
 
   return (
     <main className="min-h-screen bg-[#F8FAFC]">

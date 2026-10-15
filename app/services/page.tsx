@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 
 export const metadata = {
-  title: "Our Services — Sonkhela Soft Loans",
+  title: "Our Services | Sonkhela Soft Loans",
   description:
     "Fast collateral-backed loans in Lusaka, Zambia. Clear rates, weekly terms, and same-day review.",
 };
@@ -67,7 +67,7 @@ export default function ServicesPage() {
             Loans That Work For You
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-300">
-            Borrow K1,000 today, repay K1,150 next week. That&apos;s it — the
+            Borrow K1,000 today, repay K1,150 next week. That&apos;s it, the
             whole deal. Every rate is on this page, so you know the full cost
             before you apply.
           </p>
@@ -94,7 +94,7 @@ export default function ServicesPage() {
               </div>
               <p className="leading-8 text-gray-700">
                 Our flagship product. Get quick cash by securing your loan with
-                a valuable item — smartphones, laptops, TVs, gaming consoles,
+                a valuable item: smartphones, laptops, TVs, gaming consoles,
                 jewellery, vehicles and more. Your item is stored safely and
                 returned in full when your loan is repaid.
               </p>

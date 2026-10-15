@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ShieldCheck, Zap, Users, MapPin } from "lucide-react";
 
 export const metadata = {
-  title: "About Us — Sonkhela Soft Loans",
+  title: "About Us | Sonkhela Soft Loans",
   description:
     "Sonkhela Soft Loans is a PACRA-registered microfinance business providing fast, collateral-backed loans to students and communities across Lusaka and the nation at large.",
 };
@@ -21,7 +21,7 @@ export default function AboutPage() {
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-300">
             Emergencies don&apos;t wait for payday. Sonkhela gets you cash the
-            same day — no queues, no endless paperwork, no judgement. Just bring
+            same day: no queues, no endless paperwork, no judgement. Just bring
             your NRC and something of value.
           </p>
         </div>
@@ -42,7 +42,7 @@ export default function AboutPage() {
               The model is simple: your phone, laptop, or other valuable item
               secures the loan. It&apos;s stored safely, you get your cash in
               hours, and the item comes back the moment you repay. Written
-              agreement. Clear rates. No hidden charges — ever.
+              agreement. Clear rates. No hidden charges, ever.
             </p>
           </div>
 
