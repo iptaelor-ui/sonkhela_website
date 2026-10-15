@@ -51,6 +51,7 @@ export default async function Footer() {
             <li><Link href="/" className="transition hover:text-[#F97316]">Home</Link></li>
             <li><Link href="/about" className="transition hover:text-[#F97316]">About Us</Link></li>
             <li><Link href="/services" className="transition hover:text-[#F97316]">Our Services</Link></li>
+            <li><Link href="/invest" className="transition hover:text-[#F97316]">Invest With Us</Link></li>
             <li><Link href="/contact" className="transition hover:text-[#F97316]">Contact</Link></li>
             <li><Link href="/track" className="transition hover:text-[#F97316]">Track Application</Link></li>
             <li><Link href="/apply?loan=collateral" className="font-semibold text-white transition hover:text-[#F97316]">Apply Now →</Link></li>

@@ -19,6 +19,12 @@
       }
     ],
     "paths": {
+      "@/components/*": ["./frontend/components/*"],
+      "@/lib/utils": ["./frontend/lib/utils"],
+      "@/lib/approvalToken": ["./backend/lib/approvalToken"],
+      "@/lib/supabase": ["./database/supabase"],
+      "@/lib/supabaseAdmin": ["./database/supabaseAdmin"],
+      "@/lib/application": ["./database/application"],
       "@/*": ["./*"]
     }
   },

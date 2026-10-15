@@ -11,6 +11,7 @@ const LINKS = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
+  { href: "/invest", label: "Invest" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
   { href: "/track", label: "Track Application" },
@@ -39,8 +40,8 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop navigation */}
-        <nav className="hidden items-center gap-10 md:flex">
-          {LINKS.slice(0, 5).map((l) => (
+        <nav className="hidden items-center gap-6 md:flex lg:gap-10">
+          {LINKS.slice(0, 6).map((l) => (
             <Link
               key={l.href}
               href={l.href}
