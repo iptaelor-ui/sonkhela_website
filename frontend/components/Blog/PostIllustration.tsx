@@ -96,7 +96,7 @@ function Tips() {
 
 export default function PostIllustration({ theme, className = "" }: { theme: Theme; className?: string }) {
   return (
-    <svg viewBox="0 0 240 180" className={className} role="img" aria-label={`${theme} illustration`}>
+    <svg viewBox="0 0 240 180" overflow="visible" className={className} role="img" aria-label={`${theme} illustration`}>
       <circle cx={30} cy={30} r={50} fill="white" fillOpacity={0.04} />
       <circle cx={220} cy={160} r={60} fill="white" fillOpacity={0.05} />
       {theme === "savings" && <Savings />}

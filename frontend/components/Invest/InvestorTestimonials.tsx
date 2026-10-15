@@ -10,7 +10,7 @@ function Photo({ investor, size }: { investor: Investor; size: string }) {
   return (
     <div className={`relative shrink-0 overflow-hidden rounded-full bg-[#0B1F4D] ring-4 ring-[#F97316]/20 ${size}`}>
       {investor.photo_url ? (
-        <Image src={investor.photo_url} alt={investor.name} fill sizes="160px" className="object-cover object-[center_25%]" />
+        <Image src={investor.photo_url} alt={investor.name} fill sizes="208px" className="object-cover object-[center_25%]" />
       ) : (
         <span className="flex h-full w-full items-center justify-center text-2xl font-bold text-white">
           {initials(investor.name)}
@@ -47,8 +47,8 @@ export default function InvestorTestimonials({ investors }: { investors: Investo
   if (investors.length === 1) {
     const inv = investors[0];
     return (
-      <figure className="mx-auto flex max-w-4xl flex-col items-center gap-8 rounded-3xl bg-white p-8 shadow-lg sm:p-12 md:flex-row md:items-start">
-        <Photo investor={inv} size="h-36 w-36 sm:h-40 sm:w-40" />
+      <figure className="mx-auto flex max-w-5xl flex-col items-center gap-8 rounded-3xl bg-white p-8 shadow-lg sm:p-12 md:flex-row md:items-center lg:gap-12 lg:p-14">
+        <Photo investor={inv} size="h-36 w-36 sm:h-40 sm:w-40 lg:h-52 lg:w-52" />
         <div className="text-center md:text-left">
           <Quote size={36} className="mx-auto text-[#F97316] md:mx-0" />
           <blockquote className="mt-4 text-lg leading-8 text-gray-700 sm:text-xl sm:leading-9">

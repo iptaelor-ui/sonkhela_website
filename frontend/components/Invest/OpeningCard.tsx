@@ -34,11 +34,11 @@ export default function OpeningCard({ opening }: { opening: Opening }) {
       {opening.description && <p className="mt-3 flex-1 leading-7 text-gray-600">{opening.description}</p>}
 
       {facts.length > 0 && (
-        <dl className="mt-6 grid grid-cols-3 gap-3 border-t border-gray-100 pt-6">
+        <dl className="mt-6 flex flex-wrap gap-x-10 gap-y-4 border-t border-gray-100 pt-6">
           {facts.map((f) => (
             <div key={f.label}>
               <dt className="text-xs uppercase tracking-wide text-gray-500">{f.label}</dt>
-              <dd className="mt-1 font-bold text-[#0B1F4D]">{f.value}</dd>
+              <dd className="mt-1 text-lg font-bold text-[#0B1F4D]">{f.value}</dd>
             </div>
           ))}
         </dl>
